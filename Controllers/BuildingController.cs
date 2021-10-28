@@ -47,5 +47,21 @@ namespace Code.Controllers
 
             return buildings;
         }
+    
+    
+        [HttpPost]
+        public IActionResult Create(Building building){
+
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, Building building){
+
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id){
+            
+        }
     }
 }
