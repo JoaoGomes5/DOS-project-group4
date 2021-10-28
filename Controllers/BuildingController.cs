@@ -9,21 +9,14 @@ namespace Code.Controllers
     public class BuildingController : ControllerBase
     {
 
-
+        private List<Building> buildings =  new List<Building>();
         private readonly ILogger<BuildingController> _logger;
 
         public BuildingController(ILogger<BuildingController> logger)
         {
             _logger = logger;
-        }
 
-        [HttpGet]
-        public IEnumerable<Building> Get()
-        {
-
-            var buildings = new List<Building>();
-
-            buildings.Add(new Building
+              buildings.Add(new Building
             {
                 Name = "The Shard",
                 Street = "London Bridge St",
@@ -44,24 +37,60 @@ namespace Code.Controllers
                 Country = "United Kingdom"
 
             });
+        }
 
+        [HttpGet]
+        public IEnumerable<Building> Get()
+        {
             return buildings;
         }
-    
-    
+
+
         [HttpPost]
         public IActionResult Create(Building building){
 
+        buildings.Add(building);
+
+         return CreatedAtAction(
+                nameof(Create), 
+                new {
+                id = building.Id
+                },
+                building
+           );
+            
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id, Building building){
+        public void Update(int id, Building building){
+            if(id != building.Id){
+                return;
+            }
 
+            var existingBuildingIndex = buildings.FindIndex(p => p.Id == building.Id);
+
+            if(existingBuildingIndex == -1){
+                return ;
+            }
+
+           buildings[existingBuildingIndex] = building;
+
+          
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id){
+        public void Delete(int id){
+             Building existingBuilding = buildings.Find(p => p.Id == id);
+
+            if(existingBuilding is null){
+                return;
+            }
             
+             buildings.Remove(existingBuilding);
         }
+    
+   
+
+        
     }
 }
