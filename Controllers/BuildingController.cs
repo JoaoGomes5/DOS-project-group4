@@ -45,48 +45,61 @@ namespace Code.Controllers
             return buildings;
         }
 
+        [HttpGet("{id}")]
+        public ActionResult<Building> GetID(int id){
+             Building building = buildings.Find(p => p.Id == id);
+
+            if(building is null)
+                return NotFound();
+
+            return building;
+        }
 
         [HttpPost]
-        public IActionResult Create(Building building){
+        public ActionResult Create(Building building){
 
-        buildings.Add(building);
+            buildings.Add(building);
 
-         return CreatedAtAction(
+            return CreatedAtAction(
                 nameof(Create), 
                 new {
                 id = building.Id
                 },
                 building
-           );
+            );
             
         }
 
         [HttpPut("{id}")]
-        public void Update(int id, Building building){
+        public ActionResult Update(int id, Building building){
             if(id != building.Id){
-                return;
+                return NotFound();
             }
 
             var existingBuildingIndex = buildings.FindIndex(p => p.Id == building.Id);
 
             if(existingBuildingIndex == -1){
-                return ;
+                return StatusCode(400);
             }
 
            buildings[existingBuildingIndex] = building;
+
+           return StatusCode(200);
 
           
         }
 
         [HttpDelete("{id}")]
-        public void Delete(int id){
+        public ActionResult Delete(int id){
              Building existingBuilding = buildings.Find(p => p.Id == id);
 
             if(existingBuilding is null){
-                return;
+                return NotFound();
             }
             
              buildings.Remove(existingBuilding);
+
+             return StatusCode(200);
         }
     
    
