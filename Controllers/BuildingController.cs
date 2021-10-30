@@ -46,7 +46,7 @@ namespace Code.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Building> GetID(int id){
+        public ActionResult<Building> GetById(int id){
              Building building = buildings.Find(p => p.Id == id);
 
             if(building is null)
