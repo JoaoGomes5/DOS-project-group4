@@ -18,6 +18,7 @@ namespace Code.Controllers
 
               buildings.Add(new Building
             {
+                Id = 1,
                 Name = "The Shard",
                 Street = "London Bridge St",
                 Town = "London",
@@ -29,6 +30,7 @@ namespace Code.Controllers
 
             buildings.Add(new Building
             {
+                Id = 2,
                 Name = "One Canada Square",
                 Street = "Canary Wharf",
                 Town = "London",
@@ -39,22 +41,48 @@ namespace Code.Controllers
             });
         }
 
+
+        /// <summary>
+        ///  Get all the buildings
+        /// </summary>
+        /// <response code="200">Sucess</response>
+        /// <response code="500">Error</response>
+        /// 
         [HttpGet]
+        [ProducesResponseType(typeof(List<Building>), 200)]
+        [ProducesResponseType(500)]
         public IEnumerable<Building> Get()
         {
             return buildings;
         }
 
+          /// <summary>
+        ///  Get a specific building by ID
+        /// </summary>
+        /// <param name="id"> Building ID</param>
+        /// <response code="200">Sucess</response>
+        /// <response code="400">Not found</response>
+        /// <response code="500">Error</response>
         [HttpGet("{id}")]
-        public ActionResult<Building> GetById(int id){
+        public IActionResult GetById(int id){
              Building building = buildings.Find(p => p.Id == id);
 
-            if(building is null)
+            if(building == null)
                 return NotFound();
 
-            return building;
+            return Ok(building) ;
         }
 
+
+
+        /// <summary>
+        /// Create Building
+        /// </summary>
+        /// <param name="building"> User Model</param>
+        /// <response code="200">Sucess</response>
+        /// <response code="400">Invalid User Model</response>
+        /// <response code="404">Not found</response>
+        /// <response code="500">Error</response>
         [HttpPost]
         public ActionResult Create(Building building){
 
@@ -70,6 +98,17 @@ namespace Code.Controllers
             
         }
 
+
+
+        /// <summary>
+        /// Edit  specific user by ID
+        /// </summary>
+        /// <param name="id"> Building ID</param>
+        /// <param name="building"> Building Model </param>
+        /// <response code="200">Sucess</response>
+        /// <response code="400">Invalid User Model</response>
+        ///  <response code="404">Not Found</response>
+        /// <response code="500">Error</response>
         [HttpPut("{id}")]
         public ActionResult Update(int id, Building building){
             if(id != building.Id){
@@ -89,6 +128,15 @@ namespace Code.Controllers
           
         }
 
+
+
+          /// <summary>
+        ///  Delete  a specific building by ID
+        /// </summary>
+        /// <param name="id"> Building ID</param>
+        /// <response code="200">Sucess</response>
+        /// <response code="404">Not found</response>
+        /// <response code="500">Error</response>
         [HttpDelete("{id}")]
         public ActionResult Delete(int id){
              Building existingBuilding = buildings.Find(p => p.Id == id);
