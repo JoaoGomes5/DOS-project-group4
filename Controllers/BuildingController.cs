@@ -18,6 +18,7 @@ namespace Code.Controllers
 
               buildings.Add(new Building
             {
+                Id = 1,
                 Name = "The Shard",
                 Street = "London Bridge St",
                 Town = "London",
@@ -29,6 +30,7 @@ namespace Code.Controllers
 
             buildings.Add(new Building
             {
+                Id = 2,
                 Name = "One Canada Square",
                 Street = "Canary Wharf",
                 Town = "London",
