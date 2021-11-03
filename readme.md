@@ -11,8 +11,8 @@
 
 ## 🔨 Features
 
-- [ ] CRUD Building
-- [ ] CRUD Floor
+- [X] CRUD Building
+- [X] CRUD Floor
 
 
 ## ✨ Technologies
