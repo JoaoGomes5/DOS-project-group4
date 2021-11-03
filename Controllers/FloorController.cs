@@ -34,6 +34,20 @@ namespace Code.Controllers
         }
 
         /// <summary>
+        ///  Get all the floors
+        /// </summary>
+        /// <response code="200">Sucess</response>
+        /// <response code="500">Error</response>
+        /// 
+        [HttpGet]
+        [ProducesResponseType(typeof(List<Floor>), 200)]
+        [ProducesResponseType(500)]
+        public IEnumerable<Floor> Get()
+        {
+            return floors;
+        }
+
+        /// <summary>
         ///  Get a specific floor by ID
         /// </summary>
         /// <param name="id"> Floor ID</param>
