@@ -86,5 +86,25 @@ namespace Code.Controllers
             );
             
         }
+
+        /// <summary>
+        ///  Delete  a specific floor by ID
+        /// </summary>
+        /// <param name="id"> Floor ID</param>
+        /// <response code="200">Sucess</response>
+        /// <response code="404">Not found</response>
+        /// <response code="500">Error</response>
+        [HttpDelete("{id}")]
+        public ActionResult Delete(int id){
+             Floor existingFloor = floors.Find(p => p.Id == id);
+
+            if(existingFloor is null){
+                return NotFound();
+            }
+            
+             floors.Remove(existingFloor);
+
+             return StatusCode(200);
+        }
     }
 }
