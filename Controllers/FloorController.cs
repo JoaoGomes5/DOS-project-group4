@@ -32,5 +32,22 @@ namespace Code.Controllers
 
             });
         }
+
+        /// <summary>
+        ///  Get a specific floor by ID
+        /// </summary>
+        /// <param name="id"> Floor ID</param>
+        /// <response code="200">Sucess</response>
+        /// <response code="400">Not found</response>
+        /// <response code="500">Error</response>
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id){
+             Floor floor = floors.Find(p => p.Id == id);
+
+            if(floor == null)
+                return NotFound();
+
+            return Ok(floor) ;
+        }
     }
 }
