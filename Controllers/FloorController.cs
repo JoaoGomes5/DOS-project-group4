@@ -32,5 +32,79 @@ namespace Code.Controllers
 
             });
         }
+
+        /// <summary>
+        ///  Get all the floors
+        /// </summary>
+        /// <response code="200">Sucess</response>
+        /// <response code="500">Error</response>
+        /// 
+        [HttpGet]
+        [ProducesResponseType(typeof(List<Floor>), 200)]
+        [ProducesResponseType(500)]
+        public IEnumerable<Floor> Get()
+        {
+            return floors;
+        }
+
+        /// <summary>
+        ///  Get a specific floor by ID
+        /// </summary>
+        /// <param name="id"> Floor ID</param>
+        /// <response code="200">Sucess</response>
+        /// <response code="400">Not found</response>
+        /// <response code="500">Error</response>
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id){
+             Floor floor = floors.Find(p => p.Id == id);
+
+            if(floor == null)
+                return NotFound();
+
+            return Ok(floor) ;
+        }
+
+        /// <summary>
+        /// Create Floor
+        /// </summary>
+        /// <param name="floor"> User Model</param>
+        /// <response code="200">Sucess</response>
+        /// <response code="400">Invalid User Model</response>
+        /// <response code="404">Not found</response>
+        /// <response code="500">Error</response>
+        [HttpPost]
+        public ActionResult Create(Floor floor){
+
+            floors.Add(floor);
+
+            return CreatedAtAction(
+                nameof(Create), 
+                new {
+                id = floor.Id
+                },
+                floor
+            );
+            
+        }
+
+        /// <summary>
+        ///  Delete  a specific floor by ID
+        /// </summary>
+        /// <param name="id"> Floor ID</param>
+        /// <response code="200">Sucess</response>
+        /// <response code="404">Not found</response>
+        /// <response code="500">Error</response>
+        [HttpDelete("{id}")]
+        public ActionResult Delete(int id){
+             Floor existingFloor = floors.Find(p => p.Id == id);
+
+            if(existingFloor is null){
+                return NotFound();
+            }
+            
+             floors.Remove(existingFloor);
+
+             return StatusCode(200);
+        }
     }
 }
