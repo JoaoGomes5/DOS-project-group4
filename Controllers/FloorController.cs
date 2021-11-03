@@ -63,5 +63,28 @@ namespace Code.Controllers
 
             return Ok(floor) ;
         }
+
+        /// <summary>
+        /// Create Floor
+        /// </summary>
+        /// <param name="floor"> User Model</param>
+        /// <response code="200">Sucess</response>
+        /// <response code="400">Invalid User Model</response>
+        /// <response code="404">Not found</response>
+        /// <response code="500">Error</response>
+        [HttpPost]
+        public ActionResult Create(Floor floor){
+
+            floors.Add(floor);
+
+            return CreatedAtAction(
+                nameof(Create), 
+                new {
+                id = floor.Id
+                },
+                floor
+            );
+            
+        }
     }
 }
