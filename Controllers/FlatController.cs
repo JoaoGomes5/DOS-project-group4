@@ -45,10 +45,10 @@ namespace Code.Controllers
         public IActionResult GetById(int id){
              Flat flat = flats.Find(p => p.Id == id);
 
-            if(flats == null)
+            if(flat == null)
                 return NotFound();
 
-            return Ok(flats) ;
+            return Ok(flat) ;
         }
 
         [HttpPost]
@@ -86,7 +86,7 @@ namespace Code.Controllers
         public ActionResult Delete(int id){
              Flat existingFlat = flats.Find(p => p.Id == id);
 
-            if(existingFlat is null){
+            if(existingFlat == null){
                 return NotFound();
             }
             
