@@ -47,6 +47,7 @@ namespace Code.Controllers
         /// </summary>
         /// <response code="200">Sucess</response>
         /// <response code="500">Error</response>
+        /// 
         [HttpGet]
         [ProducesResponseType(typeof(List<Building>), 200)]
         [ProducesResponseType(500)]
