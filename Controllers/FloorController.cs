@@ -67,9 +67,9 @@ namespace Code.Controllers
         /// <summary>
         /// Create Floor
         /// </summary>
-        /// <param name="floor"> User Model</param>
+        /// <param name="floor"> Floor Model</param>
         /// <response code="200">Sucess</response>
-        /// <response code="400">Invalid User Model</response>
+        /// <response code="400">Invalid Floor Model</response>
         /// <response code="404">Not found</response>
         /// <response code="500">Error</response>
         [HttpPost]

@@ -32,7 +32,11 @@ namespace Code.Controllers
 
             });
         }
-
+        /// <summary>
+        ///  Get all the flats
+        /// </summary>
+        /// <response code="200">Sucess</response>
+        /// <response code="500">Server error</response>
         [HttpGet]
         [ProducesResponseType(typeof(List<Flat>), 200)]
         [ProducesResponseType(500)]
@@ -41,6 +45,13 @@ namespace Code.Controllers
             return flats;
         }
 
+        /// <summary>
+        ///  Get a specific flat by ID
+        /// </summary>
+        /// <param name="id"> Flat ID</param>
+        /// <response code="200">Sucess</response>
+        /// <response code="404">Not found</response>
+        /// <response code="500">Error</response>
         [HttpGet("{id}")]
         public IActionResult GetById(int id){
              Flat flat = flats.Find(p => p.Id == id);
@@ -51,6 +62,15 @@ namespace Code.Controllers
             return Ok(flat) ;
         }
 
+
+        /// <summary>
+        /// Create Flat
+        /// </summary>
+        /// <param name="flat"> Flat Model</param>
+        /// <response code="200">Sucess</response>
+        /// <response code="400">Invalid Flat Model</response>
+        /// <response code="404">Not found</response>
+        /// <response code="500">Error</response>
         [HttpPost]
         public ActionResult Create(Flat flat){
 
@@ -64,7 +84,16 @@ namespace Code.Controllers
                 flat
             );
         }
-
+        
+        /// <summary>
+        /// Edit  specific Flat by Id
+        /// </summary>
+        /// <param name="id"> Flat Id</param>
+        /// <param name="flat"> Flat Model </param>
+        /// <response code="200">Sucess</response>
+        /// <response code="400">Invalid Flat Model</response>
+        ///  <response code="404">Not Found</response>
+        /// <response code="500">Error</response>
         [HttpPut("{id}")]
         public ActionResult Update(int id, Flat flat){
             if(id != flat.Id){
@@ -82,6 +111,13 @@ namespace Code.Controllers
            return StatusCode(200);
         }
 
+         /// <summary>
+        ///  Delete  a specific flat by Id
+        /// </summary>
+        /// <param name="id"> Flat Id</param>
+        /// <response code="200">Sucess</response>
+        /// <response code="404">Not found</response>
+        /// <response code="500">Error</response>
         [HttpDelete("{id}")]
         public ActionResult Delete(int id){
              Flat existingFlat = flats.Find(p => p.Id == id);

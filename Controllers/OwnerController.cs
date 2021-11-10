@@ -19,7 +19,7 @@ namespace Code.Controllers
             owners.Add(new Owner
             {
                 Id = 1,
-                FirstName = "João",
+                FirstName = "Joï¿½o",
                 LastName = "Brito",
                 PhoneNumber = 9998885533
 
@@ -35,6 +35,11 @@ namespace Code.Controllers
             });
         }
 
+         /// <summary>
+        ///  Get all the owners
+        /// </summary>
+        /// <response code="200">Sucess</response>
+        /// <response code="500">Error</response>
         [HttpGet]
         [ProducesResponseType(typeof(List<Owner>), 200)]
         [ProducesResponseType(500)]
@@ -43,6 +48,13 @@ namespace Code.Controllers
             return owners;
         }
 
+           /// <summary>
+        ///  Get a specific Owner by Id
+        /// </summary>
+        /// <param name="id"> Owner Id</param>
+        /// <response code="200">Sucess</response>
+        /// <response code="400">Not found</response>
+        /// <response code="500">Error</response>
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -54,6 +66,14 @@ namespace Code.Controllers
             return Ok(owner);
         }
 
+        /// <summary>
+        /// Create Owner
+        /// </summary>
+        /// <param name="owner"> Owner Model</param>
+        /// <response code="200">Sucess</response>
+        /// <response code="400">Invalid Owner Model</response>
+        /// <response code="404">Not found</response>
+        /// <response code="500">Error</response>
         [HttpPost]
         public ActionResult Create(Owner owner)
         {
@@ -71,6 +91,15 @@ namespace Code.Controllers
 
         }
 
+        /// <summary>
+        /// Edit  specific Owner by ID
+        /// </summary>
+        /// <param name="id"> Owner ID</param>
+        /// <param name="owner"> Owner Model </param>
+        /// <response code="200">Sucess</response>
+        /// <response code="400">Invalid Owner Model</response>
+        ///  <response code="404">Not Found</response>
+        /// <response code="500">Error</response>
         [HttpPut("{id}")]
         public ActionResult Update(int id, Owner owner)
         {
@@ -93,6 +122,13 @@ namespace Code.Controllers
 
         }
 
+         /// <summary>
+        ///  Delete  a specific Owner by ID
+        /// </summary>
+        /// <param name="id"> Owner ID</param>
+        /// <response code="200">Sucess</response>
+        /// <response code="404">Not found</response>
+        /// <response code="500">Error</response>
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
