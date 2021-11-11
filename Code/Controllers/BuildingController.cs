@@ -19,7 +19,7 @@ namespace Code.Controllers
 
               buildings.Add(new Building
             {
-                Id = 1,
+                BuildingId = 1,
                 Name = "The Shard",
                 Street = "London Bridge St",
                 Town = "London",
@@ -31,7 +31,7 @@ namespace Code.Controllers
 
             buildings.Add(new Building
             {
-                Id = 2,
+                BuildingId = 2,
                 Name = "One Canada Square",
                 Street = "Canary Wharf",
                 Town = "London",
@@ -66,7 +66,7 @@ namespace Code.Controllers
         /// <response code="500">Error</response>
         [HttpGet("{id}")]
         public IActionResult GetById(int id){
-             Building building = buildings.Find(p => p.Id == id);
+             Building building = buildings.Find(p => p.BuildingId == id);
 
             if(building == null)
                 return NotFound();
@@ -92,7 +92,7 @@ namespace Code.Controllers
             return CreatedAtAction(
                 nameof(Create), 
                 new {
-                id = building.Id
+                id = building.BuildingId
                 },
                 building
             );
@@ -112,11 +112,11 @@ namespace Code.Controllers
         /// <response code="500">Error</response>
         [HttpPut("{id}")]
         public ActionResult Update(int id, Building building){
-            if(id != building.Id){
+            if(id != building.BuildingId){
                 return NotFound();
             }
 
-            var existingBuildingIndex = buildings.FindIndex(p => p.Id == building.Id);
+            var existingBuildingIndex = buildings.FindIndex(p => p.BuildingId == building.BuildingId);
 
             if(existingBuildingIndex == -1){
                 return StatusCode(400);
@@ -140,7 +140,7 @@ namespace Code.Controllers
         /// <response code="500">Error</response>
         [HttpDelete("{id}")]
         public ActionResult Delete(int id){
-             Building existingBuilding = buildings.Find(p => p.Id == id);
+             Building existingBuilding = buildings.Find(p => p.BuildingId == id);
 
             if(existingBuilding is null){
                 return NotFound();
