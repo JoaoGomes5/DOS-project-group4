@@ -19,7 +19,7 @@ namespace Code.Controllers
             owners.Add(new Owner
             {
                 Id = 1,
-                FirstName = "Jo�o",
+                FirstName = "Joao",
                 LastName = "Brito",
                 PhoneNumber = 9998885533
 
@@ -48,10 +48,11 @@ namespace Code.Controllers
             return owners;
         }
 
-           /// <summary>
-        ///  Get a specific Owner by Id
+
+        /// <summary>
+        ///  Get a specific owner by ID
         /// </summary>
-        /// <param name="id"> Owner Id</param>
+        /// <param name="id"> Owner ID</param>
         /// <response code="200">Sucess</response>
         /// <response code="400">Not found</response>
         /// <response code="500">Error</response>
