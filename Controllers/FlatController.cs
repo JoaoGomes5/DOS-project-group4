@@ -19,7 +19,7 @@ namespace Code.Controllers
 
               flats.Add(new Flat
             {
-                OwnerId = 1,
+                Id = 1,
                 SquareMeters = 20,
                 NumberOfRooms = 2
 
@@ -27,7 +27,7 @@ namespace Code.Controllers
 
             flats.Add(new Flat
             {
-                OwnerId = 1,
+                Id = 2,
                 SquareMeters = 25,
                 NumberOfRooms = 3
 
