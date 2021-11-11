@@ -6,7 +6,7 @@ namespace Code.Models
         public int SquareMeters { get; set; }
         public int NumberOfRooms { get; set; }
 
-        public int OwnerId { get; set; }
+        public Owner Owner { get; set; }
 
         public Floor Floor { get; set; }
     
