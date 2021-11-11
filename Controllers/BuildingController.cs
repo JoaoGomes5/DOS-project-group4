@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Code.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -78,9 +79,9 @@ namespace Code.Controllers
         /// <summary>
         /// Create Building
         /// </summary>
-        /// <param name="building"> User Model</param>
+        /// <param name="building"> Building Model</param>
         /// <response code="200">Sucess</response>
-        /// <response code="400">Invalid User Model</response>
+        /// <response code="400">Invalid Building Model</response>
         /// <response code="404">Not found</response>
         /// <response code="500">Error</response>
         [HttpPost]
@@ -101,12 +102,12 @@ namespace Code.Controllers
 
 
         /// <summary>
-        /// Edit  specific user by ID
+        /// Edit  specific building by ID
         /// </summary>
         /// <param name="id"> Building ID</param>
         /// <param name="building"> Building Model </param>
         /// <response code="200">Sucess</response>
-        /// <response code="400">Invalid User Model</response>
+        /// <response code="400">Invalid Building Model</response>
         ///  <response code="404">Not Found</response>
         /// <response code="500">Error</response>
         [HttpPut("{id}")]
