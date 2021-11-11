@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Code.Models
 {
     public class Owner
@@ -6,5 +8,7 @@ namespace Code.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public long PhoneNumber { get; set; }
+    
+        public ICollection<Owner> Owners { get; set;}
     }
 }
