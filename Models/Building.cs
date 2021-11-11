@@ -1,4 +1,6 @@
-﻿namespace Code
+﻿using System.Collections.Generic;
+
+namespace Code
 {
     public class Building
     {
@@ -9,5 +11,7 @@
         public string Postcode { get; set; }
         public int FloorsNumber { get; set; }
         public string Country { get; set; }
+        public ICollection<Floor> Floors { get; set; }
+
     }
 }
