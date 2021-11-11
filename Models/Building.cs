@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
-namespace Code
+﻿namespace Code.Models
 {
     public class Building
     {

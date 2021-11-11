@@ -1,4 +1,4 @@
-namespace Code
+namespace Code.Models
 {
     public class Owner
     {

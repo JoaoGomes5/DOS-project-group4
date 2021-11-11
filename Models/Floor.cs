@@ -1,4 +1,6 @@
-namespace Code
+using System.Collections.Generic;
+
+namespace Code.Models
 {
     public class Floor
     {
@@ -8,5 +10,6 @@ namespace Code
         public int NumberOfRooms { get; set; }
 
         public Building Building { get; set; }
+        public ICollection<Flat> Flats { get; set;}
     }
-}
+}   

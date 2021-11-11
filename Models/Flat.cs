@@ -1,4 +1,4 @@
-namespace Code
+namespace Code.Models
 {
     public class Flat
     {
@@ -7,5 +7,7 @@ namespace Code
         public int NumberOfRooms { get; set; }
 
         public int OwnerId { get; set; }
+    
+    
     }
 }
