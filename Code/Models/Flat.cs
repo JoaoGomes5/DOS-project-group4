@@ -8,7 +8,6 @@ namespace Code.Models
 
         public int OwnerId { get; set;}
         public Owner Owner { get; set; }
-
         public Floor Floor { get; set; }
     
     
