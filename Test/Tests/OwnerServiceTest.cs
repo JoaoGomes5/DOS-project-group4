@@ -13,7 +13,7 @@ namespace Test
         [Test]
         public void itShouldBeAbleToCalculateOwnerFlatsCost()
         {
-            
+            Assert.Ignore();
         }
     }
 }
