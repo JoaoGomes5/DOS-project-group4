@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using Code.Models;
 using Code.Services;
+using System;
 
 namespace Test.Tests
 {
@@ -20,10 +21,13 @@ namespace Test.Tests
             };
 
             float expectedValue = flatService.calculateFlatCost(flat, 100);
+            
+           // Console.Write("############ Expected Value: " + expectedValue);
 
             Assert.AreEqual(expectedValue,2000);
 
 
+    
           
         }   
     }
