@@ -11,7 +11,7 @@ using System.Collections.Generic;
         public string Postcode { get; set; }
         public int FloorsNumber { get; set; }
         public string Country { get; set; }
-        public ICollection<Floor> Floors { get; set; }
+        public List<Floor> Floors { get; set; }
 
     }
 }

@@ -10,6 +10,6 @@ namespace Code.Models
         public int NumberOfRooms { get; set; }
         public int BuildingId { get; set;}
         public Building Building { get; set; }
-        public ICollection<Flat> Flats { get; set;}
+        public List<Flat> Flats { get; set;}
     }
 }   

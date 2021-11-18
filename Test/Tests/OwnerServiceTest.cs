@@ -7,7 +7,7 @@ namespace Test
     public class OwnerServiceTest
     {
         
-       
+        
         [Test]
         public void itShouldBeAbleToCalculateOwnerFlatsCost()
         {

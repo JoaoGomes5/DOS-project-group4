@@ -9,6 +9,6 @@ namespace Code.Models
         public string LastName { get; set; }
         public long PhoneNumber { get; set; }
     
-        public ICollection<Flat> Flats { get; set;}
+        public List<Flat> Flats { get; set;}
     }
 }
