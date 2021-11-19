@@ -13,17 +13,29 @@
 
 - [X] CRUD Building
 - [X] CRUD Floor
+- [X] CRUD Flat
+- [X] CRUD Owner
+
+- [X] Calculate Flat Cost
+- [X] Calculate Owner Flats Cost
 
 
 ## ✨ Technologies
 
 - [x] .NET Core
 - [x] Swagger
+- [x] Unit tests with NUnit
+
 
  
 ## 🌱 Swagger DOCS
 
-- Under construction 🚧
+- Endpoint documentation with Swagger.
+    - We decided to implement the swagger as it is an excellent way to test and document the built endpoints.
+    - To access it you should:
+        - Clone the repository
+        - Build and Run the project
+        - Access the [http://localhost:5000](http://localhost:5000) and you be redirected to Swagger page
 
 ## 🔖 Front-End App
 
